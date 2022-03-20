@@ -5,25 +5,23 @@
 echo ""
 echo "Setting variables."
 
-NAMESPACE="default"
-APP_NAME="mysite"
-DOMAIN="mysite.com"
-PRIMARY_URL="https:\/\/${DOMAIN}"
+# ********** Edit the variables below as needed for your website and domain ****************
 
-TLS_CRT="yourBase64EncodedSSLCert"
-TLS_KEY="yourBase64EncodedSSLPrivKey"
+NAMESPACE="default"                      # Leave this as 'default' unless you know why you are changing it
+APP_NAME="mysite"                        # I suggest using your domain name without the .com so you can easily identify the app.
+DOMAIN="mysite.com"                      # Set to your domain name
+PRIMARY_URL="https:\/\/${DOMAIN}"        # You probably don't want to change this one. This defines your URL.
 
-TEMPFOLDER="temp"	# we use this folder to put generated files and deploy. Then we delete it.
+TLS_CRT="yourBase64EncodedSSLCert"       # Your base64 encoded SSL Cert. 
+TLS_KEY="yourBase64EncodedSSLPrivKey"    # Your base64 encoded Private Key for the SSL Cert.
+
+TEMPFOLDER="temp"	                       # Don't change this. We use this folder to put generated files and deploy. Then we delete it.
 
 
 # ********** Edit the variables above as needed ****************
 
 
 
-
-
-
-#
 echo ""
 echo "Checking folder so we don't accidentally overwrite."
  
