@@ -46,12 +46,12 @@ cp *.yaml $TEMPFOLDER
 # You also need to set values in the secrets.yaml
 echo ""
 echo "Replace variables in the yaml files."
-find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_NAMESPACE/${NAMESPACE}/g" {} +
-find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_APP_NAME/${APP_NAME}/g" {} +
-find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_TLS_CRT/${TLS_CRT}/g" {} +
-find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_TLS_KEY/${TLS_KEY}/g" {} +
-find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_DOMAIN/${DOMAIN}/g" {} +
-find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_PRIMARY_URL/${PRIMARY_URL}/g" {} +
+find $TEMPFOLDER -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_NAMESPACE/${NAMESPACE}/g" {} +
+find $TEMPFOLDER -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_APP_NAME/${APP_NAME}/g" {} +
+find $TEMPFOLDER -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_TLS_CRT/${TLS_CRT}/g" {} +
+find $TEMPFOLDER -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_TLS_KEY/${TLS_KEY}/g" {} +
+find $TEMPFOLDER -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_DOMAIN/${DOMAIN}/g" {} +
+find $TEMPFOLDER -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_PRIMARY_URL/${PRIMARY_URL}/g" {} +
 
  
 echo ""
