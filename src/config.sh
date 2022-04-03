@@ -6,31 +6,16 @@ echo ""
 echo "Setting variables."
 
 NAMESPACE="default"
-APP_NAME="talcottfarms"
-DOMAIN="talcottfarms.com"
-PRIMARY_URL="https:\/\/${DOMAIN}"
-CLUSTER_ISSUER="letsencrypt-prod-cluster-issuer"
-
-TEMPFOLDER="temp" # we use this folder to put generated files and deploy. Then we delete it.
-
-
-NAMESPACE="default"
 APP_NAME="mysite"
 DOMAIN="mysite.com"
 PRIMARY_URL="https:\/\/${DOMAIN}"
 CLUSTER_ISSUER="letsencrypt-prod-cluster-issuer"
 
-TEMPFOLDER="temp"	# we use this folder to put generated files and deploy. Then we delete it.
-
+TEMPFOLDER="temp"	                       # Don't change this. We use this folder to put generated files and deploy. Then we delete it.
 
 # ********** Edit the variables above as needed ****************
 
 
-
-
-
-
-#
 echo ""
 echo "Checking folder so we don't accidentally overwrite."
  
@@ -55,13 +40,13 @@ cp *.yaml $TEMPFOLDER
 # You also need to set values in the secrets.yaml
 echo ""
 echo "Replace variables in the yaml files."
+
 find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_NAMESPACE/${NAMESPACE}/g" {} +
 find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_APP_NAME/${APP_NAME}/g" {} +
 find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_CLUSTER_ISSUER/${CLUSTER_ISSUER}/g" {} +
 find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_DOMAIN/${DOMAIN}/g" {} +
 find temp -name '*.yaml' -exec sed -i '.bak' "s/CONFIG_PRIMARY_URL/${PRIMARY_URL}/g" {} +
 
- 
 echo ""
 echo "Apply files."
 kubectl apply -f $TEMPFOLDER
